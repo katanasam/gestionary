@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!  <stron>USER </stron>
+                    You are logged in as ADMIN
                 </div>
             </div>
         </div>

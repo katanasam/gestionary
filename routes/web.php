@@ -18,3 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//-------------- LORDRE DES ROUTES EST IMPORTANT
+// creation des routes et nommages
+
+Route::prefix('admin')->group(function() {
+
+
+    Route::get('/login','Auth\AdminLoginController@show_login_form')->name('admin.login');
+    Route::post('/log-in','Auth\AdminLoginController@login')->name('admin.login.submit');
+
+    Route::get('/','AdminController@index')->name('admin.dashbord');
+
+});

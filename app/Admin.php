@@ -9,7 +9,8 @@ use Illuminate\Notifications\Notifiable;
 class Admin extends Authenticatable
 {
     use Notifiable;
-
+    // define le guard sans S /  dans la page config/auth.php
+    protected $guard = 'admin';
     /**
      * The attributes that are mass assignable.
      *

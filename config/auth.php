@@ -18,6 +18,8 @@ return [
         'passwords' => 'users',
     ],
 
+
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -40,10 +42,20 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+// creation de guards
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
 
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
+            'hash' => false,
+        ],
+        'admin-api' => [
+            'driver' => 'token',
+            'provider' => 'admins',
             'hash' => false,
         ],
     ],
@@ -69,6 +81,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        // creation d'un nouveau provider
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
         ],
 
         // 'users' => [
@@ -98,6 +115,16 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        // on se sert de laravel et de sons systeme de recuperation de mot passe
+        'admins' => [
+            'provider' => 'admins',
+            // la table de rangement des passwword reset
+            'table' => 'password_resets',
+            // le temps de validité du mot de passe temporaire
+            'expire' => 60,
+        ],
     ],
+
+
 
 ];
