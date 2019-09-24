@@ -40,7 +40,7 @@ class AdminLoginController extends Controller
            $request->remember)){
 
            // if  success redirect
-           return redirect()->intended(route('admin.dashbord'));
+           return redirect()->intended(route('admin.dashboard'));
        }
 
        // if not-success redirect-back
